@@ -10,16 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.querySelector('body')
     const accordion = document.querySelector('#accordion');
     body.insertBefore(deleteButton, accordion);
-    // body.appendChild(deleteButton);
     document.querySelector('#Delete').addEventListener('click', handleDelete);
   }
 
   const handleDelete = function(){
-    document.querySelector('ul').innerHTML = "";
-
-    const parent = document.querySelector('body');
-    const deleteBtn = document.querySelector('button');
-    parent.removeChild(deleteBtn);
+    clearList();
+    removeButton();
   }
 
   const handleForm = function(){
@@ -28,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newWhisky = document.createElement('li');
     const newName = document.createElement('h3');
     const newRegion = document.createElement('h5');
-    // const newAlc = document.createElement('h4');
+    // const newAlc = document.createElement('h4'); // ----REMOVED
     const newPrice = document.createElement('h4');
     
     newWhisky.classList.add('whisky');
@@ -39,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     newRegion.textContent = `(${this.region.value})`;
     newRegion.classList.add('W_region');
     
-    // newAlc.textContent = `${this.alc.value}%`;
-    // newAlc.classList.add('W_alc');
+    // newAlc.textContent = `${this.alc.value}%`; // ----REMOVED
+    // newAlc.classList.add('W_alc'); // ----REMOVED
 
     newPrice.textContent = `£${this.price.value}`;
     newPrice.classList.add('W_price');
@@ -51,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     newWhisky.appendChild(newName);
     newWhisky.appendChild(newRegion);
-    // newWhisky.appendChild(newAlc);
+    // newWhisky.appendChild(newAlc); // ----REMOVED
     newWhisky.appendChild(newPrice);
     document.querySelector('#new-item-form').reset();
 
@@ -61,3 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+// ----- HELPER FUNCTIONS? -----
+function clearList(){
+    document.querySelector('ul').innerHTML = "";
+} 
+
+function removeButton(){
+    const parent = document.querySelector('body');
+    const deleteBtn = document.querySelector('button');
+    parent.removeChild(deleteBtn);
+}
