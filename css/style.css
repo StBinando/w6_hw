@@ -1,0 +1,10 @@
+body{
+    background-image: url(/img/blackboard.jpeg);
+    /* font-family: 'Estonia', cursive;
+    font-family: 'Homemade Apple', cursive; */
+    font-family: 'Rock Salt', cursive;
+    color: #ddd;
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+}
